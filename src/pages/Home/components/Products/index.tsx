@@ -1,5 +1,5 @@
-import { ShoppingCart } from 'phosphor-react'
-import { ProductContainer, ProductItem, ProductItemFooter, ProductItemFooterAddToCart, ProductsListContent } from './styles'
+import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { ProductContainer, ProductItem, ProductItemFooter, ProductItemFooterAddToCart, ProductItemFooterButtonAddToCart, ProductItemTagCoffe, ProductsListContent } from './styles'
 
 import CoffeeExpressImage from '../../../../assets/products/Type=Expresso.svg'
 
@@ -10,19 +10,26 @@ export function Products() {
       <ProductsListContent>
         <ProductItem>
           <img src={CoffeeExpressImage} alt="Imagem Café Expresso" width={120} height={120} />
-          <strong>TRADICIONAL</strong>
-          <h1>Expresso Tradicional</h1>
-          <p>O tradicional café feito com água quente e grãos moídos</p>
+          <ProductItemTagCoffe>
+            <strong>TRADICIONAL</strong>
+          </ProductItemTagCoffe>
+          <strong>Expresso Tradicional</strong>
+          <span>O tradicional café feito com água quente e grãos moídos</span>
+
           <ProductItemFooter>
-            <h2><span>R$ </span>9,90</h2>
+            <span>R$ <strong>9,90</strong></span>
             <ProductItemFooterAddToCart>
-              <button>-</button>
+              <button>
+                <Minus size={14} weight="bold" />
+              </button>
               1
-              <button>+</button>
+              <button>
+                <Plus size={14} weight="bold" />
+              </button>
             </ProductItemFooterAddToCart>
-            <button>
-              <ShoppingCart size={25} weight="fill" />
-            </button>
+            <ProductItemFooterButtonAddToCart>
+              <ShoppingCart size={18} weight="fill" />
+            </ProductItemFooterButtonAddToCart>
           </ProductItemFooter>
         </ProductItem>
       </ProductsListContent>

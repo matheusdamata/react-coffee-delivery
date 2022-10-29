@@ -53,7 +53,7 @@ export const HeaderButton = styled.button`
 
   cursor: pointer;
 
-  & svg {
+  svg {
     color: ${props => props.theme['yellow-dark']}
   }
 
