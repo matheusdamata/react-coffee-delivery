@@ -28,9 +28,10 @@ export function Home() {
           <h1>Encontre o café perfeito para qualquer hora do dia</h1>
           <h2>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</h2>
           <InformationalIconsBanner>
+            
             {AllInformationalIcons.map(icon => (
               <InformationalIconsBannerContainer>
-                <IconContent>
+                <IconContent backgroundChangeColor={icon.color}>
                   {icon.nameIcon === 'ShoppingCart' && <ShoppingCart size={15} weight="fill" />}
                   {icon.nameIcon === 'Package' && <Package size={15} weight="fill" />}
                   {icon.nameIcon === 'Timer' && <Timer size={15} weight="fill" />}
@@ -40,11 +41,6 @@ export function Home() {
                 <InformationalText>{icon.text}</InformationalText>
               </InformationalIconsBannerContainer>
             ))}
-
-            {/* <div>Compra simples e segura</div>
-            <div>Entrega rápida e rastreada</div>
-            <div>Embalagem mantém o café intacto</div>
-            <div>O café chega fresquinho até você</div> */}
           </InformationalIconsBanner>
         </SideLeft>
         <SideRight>

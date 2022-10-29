@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components'
 
 export const HomeContainer = styled.main`
   display: flex;
@@ -47,7 +47,20 @@ export const InformationalIconsBannerContainer = styled.div`
   align-items: center;
 `
 
-export const IconContent = styled.div`
+type IconContentType = 'yellowDark' | 'yellow' | 'baseSubTitle' | 'purple';
+
+interface IconContentProps {
+  backgroundChangeColor: IconContentType;
+}
+
+const backgroundVariants = {
+  yellowDark: '#C47F17',
+  yellow: '#DBAC2C',
+  baseSubTitle: '#403937',
+  purple: '#8047F8',
+}
+
+export const IconContent = styled.div<IconContentProps>`
   width: 2rem;
   height: 2rem;
 
@@ -57,7 +70,34 @@ export const IconContent = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: ${props => props.theme['yellow']};
+  ${props => {
+    switch (props.backgroundChangeColor) {
+      case 'yellowDark':
+        return css`
+          background-color: ${backgroundVariants.yellowDark};
+        `
+      case 'yellow':
+        return css`
+          background-color: ${backgroundVariants.yellow};
+        `
+      case 'baseSubTitle':
+        return css`
+          background-color: ${backgroundVariants.baseSubTitle};
+        `
+      case 'purple':
+        return css`
+          background-color: ${backgroundVariants.purple};
+        `
+      default:
+        return css`
+          background-color: ${backgroundVariants.yellow};
+        `
+    }
+  }}
+
+  ${props => {
+    return `background: ${backgroundVariants[props.backgroundChangeColor]}`
+  }};
 
   svg {
     color: ${props => props.theme['white']};
