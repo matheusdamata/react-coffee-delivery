@@ -9,6 +9,7 @@ import api from '../../../../config/api'
 
 interface ProductsType {
   id: string
+  imageUrl: string
   name: string
   description: string
   value: number
@@ -17,6 +18,7 @@ interface ProductsType {
 
 export function Products() {
   const [products, setProducts] = useState<ProductsType[]>([])
+  const [productAmount, setProductAmount] = useState<number>(0)
 
   useEffect(() => {
     getProductsList()
@@ -33,7 +35,7 @@ export function Products() {
       <ProductsListContent>
         {products.map((product) => (
           <ProductItem key={product.id}>
-            <img src={CoffeeExpressImage} alt="Imagem Café Expresso" width={120} height={120} />
+            <img src={product.imageUrl} alt="Imagem Café Expresso" width={120} height={120} />
             <ProductItemTagCoffeeContainer>
               {product.tags.map((tag) => (
                 <ProductItemTagCoffe>
@@ -47,10 +49,10 @@ export function Products() {
             <ProductItemFooter>
               <span>R$ <strong>{product.value.toLocaleString('pt-br', { minimumFractionDigits: 2 })}</strong></span>
               <ProductItemFooterAddToCart>
-                <button>
+                <button onClick={() => setProductAmount(productAmount + 1)}>
                   <Minus size={14} weight="bold" />
                 </button>
-                1
+                {productAmount}
                 <button>
                   <Plus size={14} weight="bold" />
                 </button>
