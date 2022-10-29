@@ -60,53 +60,6 @@ const backgroundVariants = {
   purple: '#8047F8',
 }
 
-export const IconContent = styled.div<IconContentProps>`
-  width: 2rem;
-  height: 2rem;
-
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  ${props => {
-    switch (props.backgroundChangeColor) {
-      case 'yellowDark':
-        return css`
-          background-color: ${backgroundVariants.yellowDark};
-        `
-      case 'yellow':
-        return css`
-          background-color: ${backgroundVariants.yellow};
-        `
-      case 'baseSubTitle':
-        return css`
-          background-color: ${backgroundVariants.baseSubTitle};
-        `
-      case 'purple':
-        return css`
-          background-color: ${backgroundVariants.purple};
-        `
-      default:
-        return css`
-          background-color: ${backgroundVariants.yellow};
-        `
-    }
-  }}
-
-  svg {
-    color: ${props => props.theme['white']};
-  }
-`
-
-export const InformationalText = styled.p`
-  font-size: 1rem;
-  line-height: 1.3;
-
-  margin-left: 0.75rem;
-`
-
 export const SideRight = styled.div`
   img {
     width: 29.75rem;

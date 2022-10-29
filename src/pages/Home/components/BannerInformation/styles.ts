@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 type IconContentType = 'yellowDark' | 'yellow' | 'baseSubTitle' | 'purple';
 
@@ -13,6 +13,13 @@ const backgroundVariants = {
   purple: '#8047F8',
 }
 
+export const IconContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`
+
 export const IconContent = styled.div<IconContentProps>`
   width: 2rem;
   height: 2rem;
@@ -24,6 +31,19 @@ export const IconContent = styled.div<IconContentProps>`
   justify-content: center;
 
   ${props => {
-    return `background-coor: ${backgroundVariants[props.bgColor]}`
+    return css`background-color: ${backgroundVariants[props.bgColor]};`
   }}
+   
+  svg {
+    color: ${props => props.theme['white']};
+  }
+`
+
+export const IconText = styled.p`
+  font-weight: 400;
+  line-height: 1.3;
+
+  color: ${props => props.theme['base-text']};
+
+  margin-left: 0.75rem;
 `

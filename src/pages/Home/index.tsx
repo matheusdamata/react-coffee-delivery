@@ -5,11 +5,9 @@ import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react'
 import { 
   HomeContainer, 
   HomeSectionBanner, 
-  HomeSectionProducts, 
-  IconContent, 
+  HomeSectionProducts,
   InformationalIconsBanner, 
-  InformationalIconsBannerContainer, 
-  InformationalText, 
+  InformationalIconsBannerContainer,  
   SideLeft, 
   SideRight } from './styles'
 
@@ -33,20 +31,12 @@ export function Home() {
           <InformationalIconsBanner>
             {AllInformationalIcons.map(icon => (
               <InformationalIconsBannerContainer>
-                {/* <BannerInformation 
+                <BannerInformation 
                   key={icon.nameIcon} 
                   color={icon.color} 
                   nameIcon={icon.nameIcon}
                   description={icon.text}
-                /> */}
-                <IconContent backgroundChangeColor={icon.color}>
-                  {icon.nameIcon === 'ShoppingCart' && <ShoppingCart size={15} weight="fill" />}
-                  {icon.nameIcon === 'Package' && <Package size={15} weight="fill" />}
-                  {icon.nameIcon === 'Timer' && <Timer size={15} weight="fill" />}
-                  {icon.nameIcon === 'Coffee' && <Coffee size={15} weight="fill" />}
-                </IconContent>
-
-                <InformationalText>{icon.text}</InformationalText>
+                />
               </InformationalIconsBannerContainer>
             ))}
           </InformationalIconsBanner>
