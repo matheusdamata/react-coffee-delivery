@@ -17,6 +17,7 @@ import CoffeDeliveryImage from '../../assets/banner-coffe-delivery.svg'
 
 import { InformationalIconsType, AllInformationalIcons } from './components/InformationalIcons'
 import { Products } from './components/Products'
+import { BannerInformation } from './components/BannerInformation'
 
 
 export function Home() {
@@ -32,6 +33,12 @@ export function Home() {
           <InformationalIconsBanner>
             {AllInformationalIcons.map(icon => (
               <InformationalIconsBannerContainer>
+                {/* <BannerInformation 
+                  key={icon.nameIcon} 
+                  color={icon.color} 
+                  nameIcon={icon.nameIcon}
+                  description={icon.text}
+                /> */}
                 <IconContent backgroundChangeColor={icon.color}>
                   {icon.nameIcon === 'ShoppingCart' && <ShoppingCart size={15} weight="fill" />}
                   {icon.nameIcon === 'Package' && <Package size={15} weight="fill" />}

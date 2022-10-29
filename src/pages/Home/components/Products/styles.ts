@@ -54,6 +54,16 @@ export const ProductItem = styled.div`
   }
 `
 
+export const ProductItemTagCoffeeContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.25rem;
+`
+
 export const ProductItemTagCoffe = styled.div`
   display: flex;
   align-items: center;
