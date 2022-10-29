@@ -37,7 +37,7 @@ export function Products() {
             <ProductItemTagCoffeeContainer>
               {product.tags.map((tag) => (
                 <ProductItemTagCoffe>
-                  <strong>{tag}</strong>
+                  <strong>{String(tag).toUpperCase()}</strong>
                 </ProductItemTagCoffe>
               ))}
             </ProductItemTagCoffeeContainer>

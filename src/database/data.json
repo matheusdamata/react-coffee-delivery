@@ -34,8 +34,106 @@
       "value": 9.90,
       "tags": [
         "Tradicional",
-        "Gelado",
-        "Nacional"
+        "Gelado"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Café com Leite",
+      "description": "Meio a meio de expresso tradicional com leite vaporizado",
+      "value": 9.90,
+      "tags": [
+        "Tradicional",
+        "Com Leite"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Latte",
+      "description": "Uma dose de café expresso com o dobro de leite e espuma cremosa",
+      "value": 9.90,
+      "tags": [
+        "Tradicional",
+        "Com Leite"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Capuccino",
+      "description": "Bebida com canela feita de doses iguais de café, leite e espuma",
+      "value": 9.90,
+      "tags": [
+        "Tradicional",
+        "Com Leite"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Macchiato",
+      "description": "Café expresso misturado com um pouco de leite quente e espuma",
+      "value": 9.90,
+      "tags": [
+        "Tradicional",
+        "Com Leite"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Mocaccino",
+      "description": "Café expresso com calda de chocolate, pouco leite e espuma",
+      "value": 9.90,
+      "tags": [
+        "Tradicional",
+        "Com Leite"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Chocalete Quente",
+      "description": "Bebida feita com chocolate dissolvido no leite quente e café",
+      "value": 9.90,
+      "tags": [
+        "Especial",
+        "Com Leite"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Cubano",
+      "description": "Drink gelado de café expresso com rum, creme de leite e hortelã",
+      "value": 9.90,
+      "tags": [
+        "Especial",
+        "Alcoólico",
+        "Gelado"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Havaiano",
+      "description": "Bebida adocicada preparada com café e leite de coco",
+      "value": 9.90,
+      "tags": [
+        "Especial"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Árabe",
+      "description": "Bebida preparada com grãos de café árabe e especiarias",
+      "value": 9.90,
+      "tags": [
+        "Especial"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Irlandês",
+      "description": "Bebida a base de café, uísque irlandês, açúcar e chantilly",
+      "value": 9.90,
+      "tags": [
+        "Especial",
+        "Alcoólico"
       ]
     }
   ]
