@@ -95,10 +95,6 @@ export const IconContent = styled.div<IconContentProps>`
     }
   }}
 
-  ${props => {
-    return `background: ${backgroundVariants[props.backgroundChangeColor]}`
-  }};
-
   svg {
     color: ${props => props.theme['white']};
   }

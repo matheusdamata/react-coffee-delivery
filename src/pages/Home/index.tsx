@@ -16,6 +16,7 @@ import {
 import CoffeDeliveryImage from '../../assets/banner-coffe-delivery.svg'
 
 import { InformationalIconsType, AllInformationalIcons } from './components/InformationalIcons'
+import { Products } from './components/Products'
 
 
 export function Home() {
@@ -27,8 +28,8 @@ export function Home() {
         <SideLeft>
           <h1>Encontre o café perfeito para qualquer hora do dia</h1>
           <h2>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</h2>
+          
           <InformationalIconsBanner>
-            
             {AllInformationalIcons.map(icon => (
               <InformationalIconsBannerContainer>
                 <IconContent backgroundChangeColor={icon.color}>
@@ -43,12 +44,13 @@ export function Home() {
             ))}
           </InformationalIconsBanner>
         </SideLeft>
+
         <SideRight>
           <img src={CoffeDeliveryImage} alt="Imagem Coffe Delivery" />
         </SideRight>
       </HomeSectionBanner>
       <HomeSectionProducts>
-
+        <Products />
       </HomeSectionProducts>
     </HomeContainer>
   )
