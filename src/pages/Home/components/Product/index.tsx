@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
 
@@ -40,9 +41,27 @@ export function Product({ product }: ProductProps) {
 
   function handleAddCart() {
     if(productAmount >= 1) {
-      console.log('Producto adiciondo ao carrinho!')
+      toast.success('Produto adiciondo ao carrinho!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     } else {
-      console.log('Aumente a quantidade para adicionar ao carrinho!')
+      toast.error('Aumente a quantidade para adicionar ao carrinho!', {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
   }
 

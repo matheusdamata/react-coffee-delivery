@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react'
 
 import { 
+  BackgroundImageBanner,
   HomeContainer, 
   HomeSectionBanner, 
   HomeSectionProducts,
@@ -65,6 +66,7 @@ export function Home() {
         <SideRight>
           <img src={CoffeDeliveryImage} alt="Imagem Coffe Delivery" />
         </SideRight>
+        <BackgroundImageBanner></BackgroundImageBanner>
       </HomeSectionBanner>
       <HomeSectionProducts>
         <h1>Nossos cafés</h1>

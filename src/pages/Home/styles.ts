@@ -1,8 +1,29 @@
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components'
+import styled from 'styled-components'
+
+import BackgroundImage from './../../assets/background.svg'
 
 export const HomeContainer = styled.main`
   display: flex;
   flex-direction: column;
+`
+
+export const BackgroundImageBanner = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 100%;
+
+  filter: blur(80px);
+  opacity: 0.5;
+
+  background-image: url(${BackgroundImage});
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  z-index: -1;
 `
 
 export const HomeSectionBanner = styled.section`
