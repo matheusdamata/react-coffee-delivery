@@ -1,27 +1,5 @@
 import styled from 'styled-components'
 
-export const ProductContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  margin-top: 2rem;
-  margin-bottom: 4rem;
-
-  & > h1 {
-    font-family: 'Baloo 2';
-    font-size: 2rem;
-    color: ${props => props.theme['base-subtitle']};
-  }
-`
-
-export const ProductsListContent = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-
-  margin-top: 3.375rem;
-`
-
 export const ProductItem = styled.div`
   display: flex;
   flex-direction: column;

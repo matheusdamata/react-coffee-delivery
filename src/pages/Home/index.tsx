@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react'
 
@@ -8,18 +8,38 @@ import {
   HomeSectionProducts,
   InformationalIconsBanner, 
   InformationalIconsBannerContainer,  
+  ProductsListContainer,  
   SideLeft, 
   SideRight } from './styles'
 
 import CoffeDeliveryImage from '../../assets/banner-coffe-delivery.svg'
 
-import { InformationalIconsType, AllInformationalIcons } from './components/InformationalIcons'
-import { Products } from './components/Products'
+import { AllInformationalIcons } from './components/InformationalIcons'
+import { Product } from './components/Product'
 import { BannerInformation } from './components/BannerInformation'
 
+import api from '../../config/api'
+
+interface ProductsType {
+  id: string;
+  imageUrl: string;
+  name: string;
+  description: string;
+  value: number;
+  tags: [];
+}
 
 export function Home() {
-  const [informationalIcons, setInformationalIcons] = useState<InformationalIconsType[]>([])
+  const [products, setProducts] = useState<ProductsType[]>([]);
+
+  useEffect(() => {
+    getProductsList();
+  }, []);
+
+  async function getProductsList() {
+    let json = await api.getProducts();
+    setProducts(json);
+  }
 
   return (
     <HomeContainer>
@@ -47,7 +67,12 @@ export function Home() {
         </SideRight>
       </HomeSectionBanner>
       <HomeSectionProducts>
-        <Products />
+        <h1>Nossos cafés</h1>
+        <ProductsListContainer>
+          {products.map(product => (
+            <Product product={product} />
+          ))}
+        </ProductsListContainer>
       </HomeSectionProducts>
     </HomeContainer>
   )
