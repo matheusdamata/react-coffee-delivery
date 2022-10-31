@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react'
-
-import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react'
+import { useContext, useEffect, useState } from 'react'
 
 import { 
   BackgroundImageBanner,
@@ -21,6 +19,8 @@ import { BannerInformation } from './components/BannerInformation'
 
 import api from '../../config/api'
 
+import { Context } from '../../contexts/Context'
+
 interface ProductsType {
   id: string;
   imageUrl: string;
@@ -31,6 +31,10 @@ interface ProductsType {
 }
 
 export function Home() {
+  const { carts } = useContext(Context)
+
+  console.log(carts);
+  
   const [products, setProducts] = useState<ProductsType[]>([]);
 
   useEffect(() => {
@@ -51,7 +55,7 @@ export function Home() {
           
           <InformationalIconsBanner>
             {AllInformationalIcons.map(icon => (
-              <InformationalIconsBannerContainer>
+              <InformationalIconsBannerContainer key={icon.id}>
                 <BannerInformation 
                   key={icon.nameIcon} 
                   color={icon.color} 
@@ -72,7 +76,7 @@ export function Home() {
         <h1>Nossos cafés</h1>
         <ProductsListContainer>
           {products.map(product => (
-            <Product product={product} />
+            <Product key={product.id} product={product} />
           ))}
         </ProductsListContainer>
       </HomeSectionProducts>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
@@ -11,6 +11,7 @@ import {
   ProductItemTagCoffe,
   ProductItemTagCoffeeContainer,
 } from "./styles";
+import { Context } from "../../../../contexts/Context";
 
 interface ProductsType {
   id: string;
@@ -27,6 +28,8 @@ interface ProductProps {
 
 export function Product({ product }: ProductProps) {
   const [productAmount, setProductAmount] = useState<number>(1);
+
+  const { carts, dispatch } = useContext(Context)
 
   function handleAmountProduct(type: 'add' | 'remove') {
     switch (type) {
@@ -51,6 +54,16 @@ export function Product({ product }: ProductProps) {
         progress: undefined,
         theme: "light",
         });
+
+      dispatch({
+        type: 'ADD_TO_CART',
+        payload: {
+          id: product.id,
+          name: product.name,
+          value: product.value,
+          quantity: productAmount
+        }
+      })
     } else {
       toast.error('Aumente a quantidade para adicionar ao carrinho!', {
         position: "top-right",
@@ -66,7 +79,7 @@ export function Product({ product }: ProductProps) {
   }
 
   return (
-    <ProductItem key={product.id}>
+    <ProductItem>
       <img
         src={product.imageUrl}
         alt="Imagem Café Expresso"
@@ -75,7 +88,7 @@ export function Product({ product }: ProductProps) {
       />
       <ProductItemTagCoffeeContainer>
         {product.tags.map((tag) => (
-          <ProductItemTagCoffe>
+          <ProductItemTagCoffe key={tag}>
             <strong>{String(tag).toUpperCase()}</strong>
           </ProductItemTagCoffe>
         ))}

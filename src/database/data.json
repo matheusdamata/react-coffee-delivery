@@ -99,7 +99,7 @@
     {
       "id": 10,
       "imageUrl": "http://localhost/products/Type=ChocolateQuente.svg",
-      "name": "Chocalete Quente",
+      "name": "Chocalate Quente",
       "description": "Bebida feita com chocolate dissolvido no leite quente e café",
       "value": 9.90,
       "tags": [
