@@ -30,20 +30,27 @@ interface ProductsType {
   tags: [];
 }
 
-export function Home() {
-  const { carts } = useContext(Context)
-
-  console.log(carts);
-  
+export function Home() {  
   const [products, setProducts] = useState<ProductsType[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     getProductsList();
   }, []);
 
   async function getProductsList() {
-    let json = await api.getProducts();
-    setProducts(json);
+    try {
+      setLoading(true);
+
+      let json = await api.getProducts();
+      if(json.length > 0) {
+        setProducts(json);
+        setLoading(false);
+      }
+    } catch(error) {
+      setProducts([]);
+      setLoading(false);
+    }
   }
 
   return (
