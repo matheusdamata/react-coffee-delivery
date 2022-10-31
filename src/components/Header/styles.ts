@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
@@ -55,6 +56,28 @@ export const HeaderButton = styled.button`
 
   svg {
     color: ${props => props.theme['yellow-dark']}
+  }
+
+  svg:active {
+    color: ${props => props.theme['yellow']};
+  }
+`
+
+export const NavLinkStyled = styled(NavLink)`
+  width: 2.5rem;
+  height: 100%;
+  
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: ${props => props.theme['yellow-dark']};
+
+  &:active {
+    color: ${props => props.theme['yellow']};
   }
 
 `

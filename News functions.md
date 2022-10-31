@@ -5,3 +5,5 @@ Produto
 Histórico de pedidos
 - Adicionar histórico de pedidos do cliente, buscando através do store local.
 
+Frete grátis
+- Acima de tal valor oferecer o frete grátis.

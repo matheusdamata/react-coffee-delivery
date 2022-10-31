@@ -1,15 +1,21 @@
-import { useContext } from 'react'
-import { ShoppingCart, MapPin } from 'phosphor-react'
-import { NavLink } from 'react-router-dom'
+import { useContext, useState } from "react";
+import { ShoppingCart, MapPin } from "phosphor-react";
+import { NavLink } from "react-router-dom";
 
-import LogoCoffeDelivery from '../../assets/logo.svg'
+import LogoCoffeDelivery from "../../assets/logo.svg";
 
-import { Context } from '../../contexts/Context'
+import { Context } from "../../contexts/Context";
 
-import { HeaderButton, HeaderContainer, HeaderOptions, LocationUser } from './styles'
+import {
+  HeaderButton,
+  HeaderContainer,
+  HeaderOptions,
+  LocationUser,
+  NavLinkStyled,
+} from "./styles";
 
 export function Header() {
-  const { carts } = useContext(Context)
+  const { carts } = useContext(Context);
 
   return (
     <HeaderContainer>
@@ -23,10 +29,12 @@ export function Header() {
           Goiânia, GO
         </LocationUser>
         <HeaderButton>
-          <ShoppingCart size={24} weight="fill" />
-          <span>{carts.length}</span>
+          <NavLinkStyled to="/checkout">
+            <ShoppingCart size={24} weight="fill" />
+            <span>{carts.length}</span>
+          </NavLinkStyled>
         </HeaderButton>
       </HeaderOptions>
     </HeaderContainer>
-  )
+  );
 }
