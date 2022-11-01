@@ -1,4 +1,4 @@
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components';
 
 import { ContextProvider } from './contexts/Context';
 
@@ -9,20 +9,25 @@ import { defaultTheme } from './css/themes/default';
 import { GlobalStyle } from './css/global';
 
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
+
+import { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 function App() {
   return (
     <ContextProvider>
-      <ThemeProvider theme={defaultTheme}>
-        <BrowserRouter>
-          <Router />
-        </BrowserRouter>
-        <ToastContainer />
-        <GlobalStyle />
-      </ThemeProvider>
+      <SkeletonTheme>
+        <ThemeProvider theme={defaultTheme}>
+          <BrowserRouter>
+            <Router />
+          </BrowserRouter>
+          <ToastContainer />
+          <GlobalStyle />
+        </ThemeProvider>
+      </SkeletonTheme>
     </ContextProvider>
-  )
+  );
 }
 
-export default App
+export default App;

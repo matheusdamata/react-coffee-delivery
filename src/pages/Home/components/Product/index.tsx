@@ -14,7 +14,7 @@ import {
 import { Context } from "../../../../contexts/Context";
 
 interface ProductsType {
-  id: string;
+  id: number;
   imageUrl: string;
   name: string;
   description: string;

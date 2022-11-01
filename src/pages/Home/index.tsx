@@ -20,9 +20,10 @@ import { BannerInformation } from './components/BannerInformation'
 import api from '../../config/api'
 
 import { Context } from '../../contexts/Context'
+import { ProductSkeleton } from './components/ProductSkeleton'
 
-interface ProductsType {
-  id: string;
+export interface ProductsType {
+  id: number;
   imageUrl: string;
   name: string;
   description: string;
@@ -42,7 +43,7 @@ export function Home() {
     try {
       setLoading(true);
 
-      let json = await api.getProducts();
+      const json = await api.getProducts();
       if(json.length > 0) {
         setProducts(json);
         setLoading(false);
@@ -50,6 +51,7 @@ export function Home() {
     } catch(error) {
       setProducts([]);
       setLoading(false);
+      console.log('Tente novamente mais tarde!', error);
     }
   }
 
@@ -82,6 +84,7 @@ export function Home() {
       <HomeSectionProducts>
         <h1>Nossos cafés</h1>
         <ProductsListContainer>
+          {loading && <ProductSkeleton products={14} />}
           {products.map(product => (
             <Product key={product.id} product={product} />
           ))}
