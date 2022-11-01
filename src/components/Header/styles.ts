@@ -24,16 +24,16 @@ export const LocationUser = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: ${props => props.theme['purple-light']};
+  background: ${(props) => props.theme['purple-light']};
   border-radius: 8px;
 
   padding: 0.5rem;
 
   font-size: 0.875rem;
-  color: ${props => props.theme['purple-dark']};
+  color: ${(props) => props.theme['purple-dark']};
 
   & svg {
-    color: ${props => props.theme['purple']};
+    color: ${(props) => props.theme.purple};
     margin-right: 4px;
   }
 `
@@ -41,7 +41,7 @@ export const LocationUser = styled.div`
 export const HeaderButton = styled.button`
   width: 2.5rem;
   height: 100%;
-  background: ${props => props.theme['yellow-light']};
+  background: ${(props) => props.theme['yellow-light']};
 
   border-radius: 8px;
   border: 0;
@@ -55,18 +55,18 @@ export const HeaderButton = styled.button`
   cursor: pointer;
 
   svg {
-    color: ${props => props.theme['yellow-dark']}
+    color: ${(props) => props.theme['yellow-dark']};
   }
 
   svg:active {
-    color: ${props => props.theme['yellow']};
+    color: ${(props) => props.theme.yellow};
   }
 `
 
 export const NavLinkStyled = styled(NavLink)`
   width: 2.5rem;
   height: 100%;
-  
+
   border-radius: 8px;
 
   display: flex;
@@ -74,10 +74,9 @@ export const NavLinkStyled = styled(NavLink)`
   justify-content: center;
 
   text-decoration: none;
-  color: ${props => props.theme['yellow-dark']};
+  color: ${(props) => props.theme['yellow-dark']};
 
   &:active {
-    color: ${props => props.theme['yellow']};
+    color: ${(props) => props.theme.yellow};
   }
-
 `

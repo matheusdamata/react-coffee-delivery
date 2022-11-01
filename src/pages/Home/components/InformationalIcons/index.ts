@@ -1,8 +1,8 @@
 export interface InformationalIconsType {
-  id: number;
-  nameIcon: string;
-  text: string;
-  color: 'yellowDark' | 'yellow' | 'baseSubTitle' | 'purple';
+  id: number
+  nameIcon: string
+  text: string
+  color: 'yellowDark' | 'yellow' | 'baseSubTitle' | 'purple'
 }
 
 export const AllInformationalIcons: InformationalIconsType[] = [

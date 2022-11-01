@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
 
-type IconContentType = 'yellowDark' | 'yellow' | 'baseSubTitle' | 'purple';
+type IconContentType = 'yellowDark' | 'yellow' | 'baseSubTitle' | 'purple'
 
 interface IconContentProps {
-  bgColor: IconContentType;
+  bgColor: IconContentType
 }
 
 const backgroundVariants = {
@@ -30,12 +30,14 @@ export const IconContent = styled.div<IconContentProps>`
   align-items: center;
   justify-content: center;
 
-  ${props => {
-    return css`background-color: ${backgroundVariants[props.bgColor]};`
+  ${(props) => {
+    return css`
+      background-color: ${backgroundVariants[props.bgColor]};
+    `
   }}
-   
+
   svg {
-    color: ${props => props.theme['white']};
+    color: ${(props) => props.theme.white};
   }
 `
 
@@ -43,7 +45,7 @@ export const IconText = styled.p`
   font-weight: 400;
   line-height: 1.3;
 
-  color: ${props => props.theme['base-text']};
+  color: ${(props) => props.theme['base-text']};
 
   margin-left: 0.75rem;
 `

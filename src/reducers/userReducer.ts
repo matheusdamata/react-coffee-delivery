@@ -1,10 +1,10 @@
 import produce from 'immer'
 
 export type UserProps = {
-  id: number,
-  name: string,
-  value: number,
-  quantity: number,
+  id: number
+  name: string
+  value: number
+  quantity: number
 }
 
 export type UserType = {
@@ -24,7 +24,8 @@ export const userReducer = (state: UserType, action: any) => {
         })
       }
       return produce(state, (draft) => {
-        draft.carts[currentProductIndex].quantity = draft.carts[currentProductIndex].quantity + action.payload.quantity
+        draft.carts[currentProductIndex].quantity =
+          draft.carts[currentProductIndex].quantity + action.payload.quantity
       })
     }
     default:

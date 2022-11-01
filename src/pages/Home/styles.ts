@@ -41,14 +41,14 @@ export const SideLeft = styled.div`
     font-size: 3rem;
     font-weight: 800;
     line-height: 1.3;
-    color: ${props => props.theme['base-title']};
+    color: ${(props) => props.theme['base-title']};
   }
 
   h2 {
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.3;
-    color: ${props => props.theme['base-subtitle']};
+    color: ${(props) => props.theme['base-subtitle']};
 
     margin-top: 1rem;
   }
@@ -68,19 +68,6 @@ export const InformationalIconsBannerContainer = styled.div`
   align-items: center;
 `
 
-type IconContentType = 'yellowDark' | 'yellow' | 'baseSubTitle' | 'purple';
-
-interface IconContentProps {
-  backgroundChangeColor: IconContentType;
-}
-
-const backgroundVariants = {
-  yellowDark: '#C47F17',
-  yellow: '#DBAC2C',
-  baseSubTitle: '#403937',
-  purple: '#8047F8',
-}
-
 export const SideRight = styled.div`
   img {
     width: 29.75rem;
@@ -94,11 +81,11 @@ export const HomeSectionProducts = styled.section`
 
   margin-top: 2rem;
   margin-bottom: 4rem;
-  
+
   & > h1 {
     font-family: 'Baloo 2';
     font-size: 2rem;
-    color: ${props => props.theme['base-subtitle']};
+    color: ${(props) => props.theme['base-subtitle']};
   }
 `
 

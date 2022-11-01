@@ -1,7 +1,7 @@
-import { useContext, useState } from "react";
-import { toast } from "react-toastify";
+import { useContext, useState } from 'react'
+import { toast } from 'react-toastify'
 
-import { Minus, Plus, ShoppingCart } from "phosphor-react";
+import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 
 import {
   ProductItem,
@@ -10,50 +10,50 @@ import {
   ProductItemFooterButtonAddToCart,
   ProductItemTagCoffe,
   ProductItemTagCoffeeContainer,
-} from "./styles";
-import { Context } from "../../../../contexts/Context";
+} from './styles'
+import { Context } from '../../../../contexts/Context'
 
 interface ProductsType {
-  id: number;
-  imageUrl: string;
-  name: string;
-  description: string;
-  value: number;
-  tags: [];
+  id: number
+  imageUrl: string
+  name: string
+  description: string
+  value: number
+  tags: []
 }
 
 interface ProductProps {
-  product: ProductsType;
+  product: ProductsType
 }
 
 export function Product({ product }: ProductProps) {
-  const [productAmount, setProductAmount] = useState<number>(1);
+  const [productAmount, setProductAmount] = useState<number>(1)
 
-  const { carts, dispatch } = useContext(Context)
+  const { dispatch } = useContext(Context)
 
   function handleAmountProduct(type: 'add' | 'remove') {
     switch (type) {
       case 'add':
-        if(productAmount >= 0) setProductAmount(state => state + 1);
-        break;
+        if (productAmount >= 0) setProductAmount((state) => state + 1)
+        break
       case 'remove':
-        if(productAmount >= 1) setProductAmount(state => state - 1);
-        break;
+        if (productAmount >= 1) setProductAmount((state) => state - 1)
+        break
     }
   }
 
   function handleAddCart() {
-    if(productAmount >= 1) {
+    if (productAmount >= 1) {
       toast.success('Produto adiciondo ao carrinho!', {
-        position: "top-right",
+        position: 'top-right',
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
-        });
+        theme: 'light',
+      })
 
       dispatch({
         type: 'ADD_TO_CART',
@@ -61,20 +61,20 @@ export function Product({ product }: ProductProps) {
           id: product.id,
           name: product.name,
           value: product.value,
-          quantity: productAmount
-        }
+          quantity: productAmount,
+        },
       })
     } else {
       toast.error('Aumente a quantidade para adicionar ao carrinho!', {
-        position: "top-right",
+        position: 'top-right',
         autoClose: 2500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
-        });
+        theme: 'light',
+      })
     }
   }
 
@@ -98,23 +98,19 @@ export function Product({ product }: ProductProps) {
 
       <ProductItemFooter>
         <span>
-          R${" "}
+          R${' '}
           <strong>
-            {product.value.toLocaleString("pt-br", {
+            {product.value.toLocaleString('pt-br', {
               minimumFractionDigits: 2,
             })}
           </strong>
         </span>
         <ProductItemFooterAddToCart>
-          <button
-            onClick={() => handleAmountProduct('remove')}
-          >
+          <button onClick={() => handleAmountProduct('remove')}>
             <Minus size={14} weight="bold" />
           </button>
           {productAmount}
-          <button
-            onClick={() => handleAmountProduct('add')}
-          >
+          <button onClick={() => handleAmountProduct('add')}>
             <Plus size={14} weight="bold" />
           </button>
         </ProductItemFooterAddToCart>
@@ -123,5 +119,5 @@ export function Product({ product }: ProductProps) {
         </ProductItemFooterButtonAddToCart>
       </ProductItemFooter>
     </ProductItem>
-  );
+  )
 }

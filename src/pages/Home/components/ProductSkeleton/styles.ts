@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ProductItem = styled.div`
   display: flex;
@@ -6,7 +6,7 @@ export const ProductItem = styled.div`
   align-items: center;
   text-align: center;
 
-  background: ${props => props.theme['base-card']};
+  background: ${(props) => props.theme['base-card']};
 `
 
 export const ProductImage = styled.div`

@@ -6,7 +6,7 @@ export const ProductItem = styled.div`
   align-items: center;
   text-align: center;
 
-  background: ${props => props.theme['base-card']};
+  background: ${(props) => props.theme['base-card']};
 
   img {
     margin-top: -1rem;
@@ -25,7 +25,7 @@ export const ProductItem = styled.div`
     font-size: 0.875rem;
     line-height: 1.3;
 
-    color: ${props => props.theme['base-label']};
+    color: ${(props) => props.theme['base-label']};
 
     margin-top: 0.5rem;
     padding: 0 1.25rem;
@@ -47,7 +47,7 @@ export const ProductItemTagCoffe = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: ${props => props.theme['yellow-light']};
+  background: ${(props) => props.theme['yellow-light']};
   border-radius: 6.25rem;
 
   margin: 1rem 0;
@@ -55,7 +55,7 @@ export const ProductItemTagCoffe = styled.div`
 
   & strong {
     font-size: 0.625rem;
-    color: ${props => props.theme['yellow-dark']};
+    color: ${(props) => props.theme['yellow-dark']};
   }
 `
 
@@ -64,7 +64,7 @@ export const ProductItemFooter = styled.footer`
   flex-direction: row;
 
   margin: 1.25rem 0;
-  
+
   & span {
     font-family: 'Roboto';
     font-size: 0.875rem;
@@ -77,7 +77,7 @@ export const ProductItemFooter = styled.footer`
     font-size: 1.5rem;
     font-weight: 800;
     line-height: 1.3;
-    color: ${props => props.theme['base-text']};
+    color: ${(props) => props.theme['base-text']};
   }
 `
 
@@ -90,7 +90,7 @@ export const ProductItemFooterAddToCart = styled.div`
 
   gap: 0.5rem;
 
-  background: ${props => props.theme['base-button']};
+  background: ${(props) => props.theme['base-button']};
   margin-left: 1rem;
   padding: 0 0.5rem;
   border-radius: 8px;
@@ -102,7 +102,7 @@ export const ProductItemFooterAddToCart = styled.div`
   button {
     border: 0;
     background: transparent;
-    color: ${props => props.theme['purple']};
+    color: ${(props) => props.theme.purple};
     cursor: pointer;
   }
 `
@@ -110,7 +110,7 @@ export const ProductItemFooterAddToCart = styled.div`
 export const ProductItemFooterButtonAddToCart = styled.button`
   width: 2.5rem;
   height: 100%;
-  background: ${props => props.theme['purple-dark']};
+  background: ${(props) => props.theme['purple-dark']};
   margin-left: 0.5rem;
 
   border-radius: 8px;
@@ -123,6 +123,6 @@ export const ProductItemFooterButtonAddToCart = styled.button`
   cursor: pointer;
 
   svg {
-    color: ${props => props.theme['white']}
+    color: ${(props) => props.theme.white};
   }
 `

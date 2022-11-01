@@ -27,7 +27,7 @@ export const SideRightContainer = styled.div`
   margin-top: 1rem;
   padding: 2.5rem;
 
-  background: ${props => props.theme['base-card']};
+  background: ${(props) => props.theme['base-card']};
 
   border-top-left-radius: 8px;
   border-top-right-radius: 44px;
@@ -36,7 +36,7 @@ export const SideRightContainer = styled.div`
 
   hr {
     height: 2px;
-    background: ${props => props.theme['base-button']};
+    background: ${(props) => props.theme['base-button']};
 
     border: 0;
 
@@ -57,7 +57,7 @@ export const SideRightListProductsCartEmpty = styled.div`
   span {
     margin-top: 1rem;
     font-weight: bold;
-    color: ${props => props.theme['base-subtitle']};
+    color: ${(props) => props.theme['base-subtitle']};
   }
 
   @keyframes AnimImageCartEmpty {
@@ -99,13 +99,12 @@ export const SideRightButtonConfirmOrder = styled.button`
   padding: 0.75rem 0;
   margin-top: 1.5rem;
 
-  background: ${props => props.theme['yellow']};
+  background: ${(props) => props.theme.yellow};
   border: 0;
   border-radius: 8px;
 
   font-size: 0.875rem;
   font-weight: bold;
   line-height: 1.6;
-  color: ${props => props.theme['white']};
+  color: ${(props) => props.theme.white};
 `
-

@@ -1,13 +1,11 @@
-import Skeleton from "react-loading-skeleton";
-import { ProductItem, Content, ProductImage } from "./styles";
+import Skeleton from 'react-loading-skeleton'
+import { ProductItem, Content, ProductImage } from './styles'
 
 type ProductSkeletonProps = {
-  products: number;
-};
+  products: number
+}
 
-export function ProductSkeleton({
-  products,
-}: ProductSkeletonProps): any {
+export function ProductSkeleton({ products }: ProductSkeletonProps): any {
   return Array(products)
     .fill(0)
     .map((_, i) => (
@@ -19,5 +17,5 @@ export function ProductSkeleton({
           <Skeleton count={4} />
         </Content>
       </ProductItem>
-    ));
+    ))
 }

@@ -1,17 +1,17 @@
 import { useContext } from 'react'
 
-import { 
-  Container, 
-  SideLeft, 
-  SideRight, 
-  SideRightButtonConfirmOrder, 
-  SideRightContainer, 
-  SideRightFooteDelivery, 
-  SideRightFooter, 
-  SideRightFooterTotal, 
-  SideRightFooterTotalItems, 
-  SideRightListProductsCart, 
-  SideRightListProductsCartEmpty
+import {
+  Container,
+  SideLeft,
+  SideRight,
+  SideRightButtonConfirmOrder,
+  SideRightContainer,
+  SideRightFooteDelivery,
+  SideRightFooter,
+  SideRightFooterTotal,
+  SideRightFooterTotalItems,
+  SideRightListProductsCart,
+  SideRightListProductsCartEmpty,
 } from './styles'
 
 import { Context } from '../../contexts/Context'
@@ -19,8 +19,6 @@ import { RandomImages } from './RandomImages'
 
 export function Checkout() {
   const { carts } = useContext(Context)
-
-  
 
   return (
     <Container>
@@ -30,15 +28,13 @@ export function Checkout() {
       <SideRight>
         <h1>Cafés selecionados</h1>
         <SideRightContainer>
-          { !carts.length &&
+          {!carts.length && (
             <SideRightListProductsCartEmpty>
               <RandomImages />
               <span>O seu carrinho está vázio!</span>
             </SideRightListProductsCartEmpty>
-          }
-          <SideRightListProductsCart>
-
-          </SideRightListProductsCart>
+          )}
+          <SideRightListProductsCart></SideRightListProductsCart>
           <hr />
           <SideRightFooter>
             <SideRightFooterTotalItems>
