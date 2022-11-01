@@ -48,4 +48,5 @@ export const IconText = styled.p`
   color: ${(props) => props.theme['base-text']};
 
   margin-left: 0.75rem;
+  white-space: nowrap;
 `

@@ -19,6 +19,65 @@ export const SideLeft = styled.div`
   margin-right: 2rem;
 `
 
+export const SideLeftContainer = styled.div`
+  margin-top: 1rem;
+`
+
+export const SideLeftFormContainer = styled.div`
+  padding: 2.5rem;
+
+  border-radius: 8px;
+
+  background: ${(props) => props.theme['base-card']};
+`
+
+export const SideLeftFooter = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 0.75rem;
+  padding: 2.5rem;
+
+  border-radius: 8px;
+
+  background: ${(props) => props.theme['base-card']};
+
+  svg {
+    margin-right: 0.5rem;
+    color: ${(props) => props.theme.purple};
+  }
+
+  strong {
+    font-weight: 400;
+    line-height: 1.3;
+
+    color: ${(props) => props.theme['base-subtitle']};
+  }
+
+  p {
+    font-size: 0.875rem;
+    line-height: 1.3;
+
+    margin-top: 2px;
+
+    color: ${(props) => props.theme['base-text']};
+  }
+`
+
+export const SideLeftFooterContent = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
+export const SideLeftFooterButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  margin-top: 2rem;
+
+  gap: 0.75rem;
+`
+
 export const SideRight = styled.div`
   flex: 1;
 `
@@ -107,4 +166,6 @@ export const SideRightButtonConfirmOrder = styled.button`
   font-weight: bold;
   line-height: 1.6;
   color: ${(props) => props.theme.white};
+
+  cursor: pointer;
 `

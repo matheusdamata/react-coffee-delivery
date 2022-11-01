@@ -3,6 +3,11 @@ import { useContext } from 'react'
 import {
   Container,
   SideLeft,
+  SideLeftContainer,
+  SideLeftFooter,
+  SideLeftFooterButtons,
+  SideLeftFooterContent,
+  SideLeftFormContainer,
   SideRight,
   SideRightButtonConfirmOrder,
   SideRightContainer,
@@ -16,6 +21,8 @@ import {
 
 import { Context } from '../../contexts/Context'
 import { RandomImages } from './RandomImages'
+import { CurrencyDollar } from 'phosphor-react'
+import { ButtonsPayment } from './ButtonsPayment'
 
 export function Checkout() {
   const { carts } = useContext(Context)
@@ -24,6 +31,26 @@ export function Checkout() {
     <Container>
       <SideLeft>
         <h1>Complete seu pedido</h1>
+        <SideLeftContainer>
+          <SideLeftFormContainer>A</SideLeftFormContainer>
+          <SideLeftFooter>
+            <SideLeftFooterContent>
+              <CurrencyDollar size={22} />
+              <div>
+                <strong>Pagamento</strong>
+                <p>
+                  O pagamento é feito na entrega. Escolha a forma que deseja
+                  pagar
+                </p>
+              </div>
+            </SideLeftFooterContent>
+            <SideLeftFooterButtons>
+              <ButtonsPayment />
+              <ButtonsPayment />
+              <ButtonsPayment />
+            </SideLeftFooterButtons>
+          </SideLeftFooter>
+        </SideLeftContainer>
       </SideLeft>
       <SideRight>
         <h1>Cafés selecionados</h1>
