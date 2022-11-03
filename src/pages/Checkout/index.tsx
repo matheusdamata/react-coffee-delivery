@@ -68,9 +68,9 @@ export function Checkout() {
               </div>
             </SideLeftFooterContent>
             <SideLeftFooterButtons>
-              <ButtonsPayment />
-              <ButtonsPayment />
-              <ButtonsPayment />
+              <ButtonsPayment name="credit-card" />
+              <ButtonsPayment name="debit-card" />
+              <ButtonsPayment name="money" />
             </SideLeftFooterButtons>
           </SideLeftFooter>
         </SideLeftContainer>

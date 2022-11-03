@@ -23,7 +23,6 @@ export function RandomImages() {
       const result = products.find(
         (product) => product.id === Math.floor(Math.random() * 14) + 1,
       )
-      console.log('Result: ', result)
 
       if (result) {
         setRandomImage(() => result!.imageUrl)

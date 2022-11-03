@@ -1,11 +1,28 @@
 import { Button } from './styles'
-import { CreditCard } from 'phosphor-react'
+import { Bank, CreditCard, Money } from 'phosphor-react'
 
-export function ButtonsPayment() {
+type ButtonsPaymentProps = {
+  name: 'credit-card' | 'debit-card' | 'money'
+}
+
+export function ButtonsPayment({ name }: ButtonsPaymentProps) {
   return (
-    <Button>
-      <CreditCard size={16} />
-      CARTÃO DE CRÉDITO
-    </Button>
+    <>
+      {name === 'credit-card' && (
+        <Button>
+          <CreditCard size={16} /> CARTÃO DE CRÉDITO
+        </Button>
+      )}
+      {name === 'debit-card' && (
+        <Button>
+          <Bank size={16} /> CARTÃO DE DÉBITO
+        </Button>
+      )}
+      {name === 'money' && (
+        <Button>
+          <Money size={16} /> DINHEIRO
+        </Button>
+      )}
+    </>
   )
 }
