@@ -59,6 +59,7 @@ export function Product({ product }: ProductProps) {
         type: 'ADD_TO_CART',
         payload: {
           id: product.id,
+          imageUrl: product.imageUrl,
           name: product.name,
           value: product.value,
           quantity: productAmount,

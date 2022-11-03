@@ -24,11 +24,41 @@ export const SideLeftContainer = styled.div`
 `
 
 export const SideLeftFormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 0.75rem;
   padding: 2.5rem;
 
   border-radius: 8px;
 
   background: ${(props) => props.theme['base-card']};
+`
+
+export const SideLeftFormHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  svg {
+    margin-right: 0.5rem;
+    color: ${(props) => props.theme['yellow-dark']};
+  }
+
+  strong {
+    font-weight: 400;
+    line-height: 1.3;
+
+    color: ${(props) => props.theme['base-subtitle']};
+  }
+
+  p {
+    font-size: 0.875rem;
+    line-height: 1.3;
+
+    margin-top: 2px;
+
+    color: ${(props) => props.theme['base-text']};
+  }
 `
 
 export const SideLeftFooter = styled.div`
@@ -63,6 +93,8 @@ export const SideLeftFooter = styled.div`
     color: ${(props) => props.theme['base-text']};
   }
 `
+
+export const SideLeftFormContent = styled.div``
 
 export const SideLeftFooterContent = styled.div`
   display: flex;
@@ -129,7 +161,10 @@ export const SideRightListProductsCartEmpty = styled.div`
   }
 `
 
-export const SideRightListProductsCart = styled.div``
+export const SideRightListProductsCart = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 export const SideRightFooter = styled.div``
 

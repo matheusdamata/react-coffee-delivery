@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 import {
   Container,
@@ -8,6 +8,8 @@ import {
   SideLeftFooterButtons,
   SideLeftFooterContent,
   SideLeftFormContainer,
+  SideLeftFormContent,
+  SideLeftFormHeader,
   SideRight,
   SideRightButtonConfirmOrder,
   SideRightContainer,
@@ -20,19 +22,40 @@ import {
 } from './styles'
 
 import { Context } from '../../contexts/Context'
-import { RandomImages } from './RandomImages'
-import { CurrencyDollar } from 'phosphor-react'
-import { ButtonsPayment } from './ButtonsPayment'
+import { RandomImages } from './components/RandomImages'
+import { CurrencyDollar, MapPinLine } from 'phosphor-react'
+import { ButtonsPayment } from './components/ButtonsPayment'
+import { SelectedCoffees } from './components/SelectedCoffees'
 
 export function Checkout() {
   const { carts } = useContext(Context)
+
+  const [valueCart, setValueCart] = useState(0)
+  const [deliveryValue] = useState(3.5)
+
+  useEffect(() => {
+    carts.forEach((cart) => {
+      setValueCart((state) => {
+        return state + cart.value
+      })
+    })
+  }, [carts])
 
   return (
     <Container>
       <SideLeft>
         <h1>Complete seu pedido</h1>
         <SideLeftContainer>
-          <SideLeftFormContainer>A</SideLeftFormContainer>
+          <SideLeftFormContainer>
+            <SideLeftFormHeader>
+              <MapPinLine size={22} />
+              <div>
+                <strong>Endereço de Entrega</strong>
+                <p>Informe o endereço onde deseja receber seu pedido</p>
+              </div>
+            </SideLeftFormHeader>
+            <SideLeftFormContent></SideLeftFormContent>
+          </SideLeftFormContainer>
           <SideLeftFooter>
             <SideLeftFooterContent>
               <CurrencyDollar size={22} />
@@ -52,6 +75,7 @@ export function Checkout() {
           </SideLeftFooter>
         </SideLeftContainer>
       </SideLeft>
+
       <SideRight>
         <h1>Cafés selecionados</h1>
         <SideRightContainer>
@@ -61,12 +85,21 @@ export function Checkout() {
               <span>O seu carrinho está vázio!</span>
             </SideRightListProductsCartEmpty>
           )}
-          <SideRightListProductsCart></SideRightListProductsCart>
+          <SideRightListProductsCart>
+            {carts.map((cart) => (
+              <SelectedCoffees key={cart.id} productSelected={cart} />
+            ))}
+          </SideRightListProductsCart>
           <hr />
           <SideRightFooter>
             <SideRightFooterTotalItems>
               <span>Total de itens</span>
-              <span>R$ 29,70</span>
+              <span>
+                R${' '}
+                {valueCart.toLocaleString('pt-br', {
+                  minimumFractionDigits: 2,
+                })}
+              </span>
             </SideRightFooterTotalItems>
 
             <SideRightFooteDelivery>
@@ -76,7 +109,16 @@ export function Checkout() {
 
             <SideRightFooterTotal>
               <strong>Total</strong>
-              <strong>R$ 33,20</strong>
+              {valueCart > 0 ? (
+                <strong>
+                  R${' '}
+                  {(valueCart + deliveryValue).toLocaleString('pt-br', {
+                    minimumFractionDigits: 2,
+                  })}
+                </strong>
+              ) : (
+                <strong>R$ 0,00</strong>
+              )}
             </SideRightFooterTotal>
 
             <SideRightButtonConfirmOrder>

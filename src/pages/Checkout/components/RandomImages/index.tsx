@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 
-import api from '../../../config/api'
+import api from '../../../../config/api'
 
-import { ProductsType } from '../../Home'
+import { ProductsType } from '../../../Home'
 
-import CoffeeCartEmptyImage from '../../../assets/products/Type=CafeGelado.svg'
+import CoffeeCartEmptyImage from '../../../../assets/products/Type=CafeGelado.svg'
 
 export function RandomImages() {
   const [randomImage, setRandomImage] = useState<string>('')
