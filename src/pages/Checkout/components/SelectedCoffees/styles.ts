@@ -14,6 +14,10 @@ export const ProductSelectedContainer = styled.div`
     flex: 1;
     text-align: right;
   }
+
+  & + & {
+    margin-top: 1rem;
+  }
 `
 
 export const ProductSelectedContent = styled.div`
