@@ -31,14 +31,26 @@ export function Checkout() {
   const { carts } = useContext(Context)
 
   const [valueCart, setValueCart] = useState(0)
-  const [deliveryValue] = useState(3.5)
+  // const deliveryValue = 3.5
+
+  const formatPrice = (value: number, quantity: number) => value * quantity
+
+  const cartFormatted = carts.map((cart) => ({
+    ...cart,
+    subtotal: formatPrice(cart.quantity, cart.value),
+  }))
+
+  console.log('Total: ', valueCart)
+
+  console.log(cartFormatted)
 
   useEffect(() => {
-    carts.forEach((cart) => {
-      setValueCart((state) => {
-        return state + cart.value
-      })
-    })
+    let valueT = 0
+    for (const cart of cartFormatted) {
+      valueT += cart.subtotal
+      setValueCart(() => valueT)
+    }
+    console.log(valueT)
   }, [carts])
 
   return (
@@ -112,9 +124,12 @@ export function Checkout() {
               {valueCart > 0 ? (
                 <strong>
                   R${' '}
-                  {(valueCart + deliveryValue).toLocaleString('pt-br', {
+                  {valueCart.toLocaleString('pt-br', {
                     minimumFractionDigits: 2,
                   })}
+                  {/* {(valueCart + deliveryValue).toLocaleString('pt-br', {
+                    minimumFractionDigits: 2,
+                  })} */}
                 </strong>
               ) : (
                 <strong>R$ 0,00</strong>

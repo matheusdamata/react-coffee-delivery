@@ -16,7 +16,7 @@ export const ProductSelectedContainer = styled.div`
   }
 
   & + & {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
 `
 

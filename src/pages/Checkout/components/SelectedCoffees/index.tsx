@@ -53,6 +53,8 @@ export function SelectedCoffees({ productSelected }: SelectedCoffeesProps) {
     })
   }
 
+  const valueCart = productSelected.value * productSelected.quantity
+
   return (
     <ProductSelectedContainer>
       <img src={productSelected.imageUrl} alt="Imagem do café" />
@@ -76,13 +78,11 @@ export function SelectedCoffees({ productSelected }: SelectedCoffeesProps) {
       </ProductSelectedContent>
       <strong>
         R${' '}
-        {(productSelected.value * productSelected.quantity).toLocaleString(
-          'pt-br',
-          {
-            minimumFractionDigits: 2,
-          },
-        )}
+        {valueCart.toLocaleString('pt-br', {
+          minimumFractionDigits: 2,
+        })}
       </strong>
+      {/* {carts.length >= 2 && <hr />} */}
     </ProductSelectedContainer>
   )
 }
