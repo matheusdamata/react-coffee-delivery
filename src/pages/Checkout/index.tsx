@@ -151,7 +151,7 @@ export function Checkout() {
               )}
             </SideRightFooterTotal>
 
-            <SideRightButtonConfirmOrder>
+            <SideRightButtonConfirmOrder disabled={carts.length === 0}>
               CONFIRMAR PEDIDO
             </SideRightButtonConfirmOrder>
           </SideRightFooter>

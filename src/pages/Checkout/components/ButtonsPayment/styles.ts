@@ -19,4 +19,13 @@ export const Button = styled.button`
   white-space: nowrap;
 
   cursor: pointer;
+
+  &:hover {
+    background: ${(props) => props.theme['base-hover']};
+  }
+
+  &:focus {
+    border: 1px solid ${(props) => props.theme.purple};
+    box-shadow: none;
+  }
 `

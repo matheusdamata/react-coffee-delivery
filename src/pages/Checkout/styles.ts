@@ -249,4 +249,13 @@ export const SideRightButtonConfirmOrder = styled.button`
   color: ${(props) => props.theme.white};
 
   cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background: ${(props) => props.theme['yellow-dark']};
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
 `

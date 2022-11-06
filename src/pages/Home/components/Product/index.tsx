@@ -107,7 +107,10 @@ export function Product({ product }: ProductProps) {
           </strong>
         </span>
         <ProductItemFooterAddToCart>
-          <button onClick={() => handleAmountProduct('remove')}>
+          <button
+            onClick={() => handleAmountProduct('remove')}
+            disabled={productAmount <= 1}
+          >
             <Minus size={14} weight="bold" />
           </button>
           {productAmount}

@@ -104,6 +104,11 @@ export const ProductItemFooterAddToCart = styled.div`
     background: transparent;
     color: ${(props) => props.theme.purple};
     cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 `
 
@@ -121,6 +126,10 @@ export const ProductItemFooterButtonAddToCart = styled.button`
   justify-content: center;
 
   cursor: pointer;
+
+  &:hover {
+    background: ${(props) => props.theme.purple};
+  }
 
   svg {
     color: ${(props) => props.theme.white};

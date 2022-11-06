@@ -78,6 +78,10 @@ export const ButtonTrash = styled.button`
 
   cursor: pointer;
 
+  &:hover {
+    background: ${(props) => props.theme['base-hover']};
+  }
+
   svg {
     color: ${(props) => props.theme.purple};
     margin-right: 4px;
