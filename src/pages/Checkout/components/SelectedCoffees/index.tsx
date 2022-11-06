@@ -57,12 +57,15 @@ export function SelectedCoffees({ productSelected }: SelectedCoffeesProps) {
 
   return (
     <ProductSelectedContainer>
-      <img src={productSelected.imageUrl} alt="Imagem do café" />
+      <img src={productSelected.imageUrl} alt="Imagem do produto" />
       <ProductSelectedContent>
         <strong>{productSelected.name}</strong>
         <ProductSelectedButtons>
           <ProductSelectedAddToCart>
-            <button onClick={() => decrementProduct(productSelected.id)}>
+            <button
+              onClick={() => decrementProduct(productSelected.id)}
+              disabled={productSelected.quantity <= 1}
+            >
               <Minus size={14} weight="bold" />
             </button>
             {productSelected.quantity}

@@ -16,7 +16,7 @@ export const ProductSelectedContainer = styled.div`
   }
 
   & + & {
-    margin-top: 1.5rem;
+    margin-top: 3rem;
   }
 `
 
@@ -54,6 +54,11 @@ export const ProductSelectedAddToCart = styled.div`
     background: transparent;
     color: ${(props) => props.theme.purple};
     cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 `
 

@@ -164,6 +164,10 @@ export const SideRightListProductsCartEmpty = styled.div`
 export const SideRightListProductsCart = styled.div`
   display: flex;
   flex-direction: column;
+
+  max-height: 13.125rem;
+
+  overflow-y: auto;
 `
 
 export const SideRightFooter = styled.div``

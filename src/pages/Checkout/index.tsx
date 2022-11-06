@@ -30,8 +30,9 @@ import { SelectedCoffees } from './components/SelectedCoffees'
 export function Checkout() {
   const { carts } = useContext(Context)
 
-  const [valueCart, setValueCart] = useState(0)
-  // const deliveryValue = 3.5
+  const [totalCart, setTotalCart] = useState(0)
+  const [subTotalCart, setSubTotalCart] = useState(0)
+  const deliveryPrice = 3.5
 
   const formatPrice = (value: number, quantity: number) => value * quantity
 
@@ -40,18 +41,17 @@ export function Checkout() {
     subtotal: formatPrice(cart.quantity, cart.value),
   }))
 
-  console.log('Total: ', valueCart)
+  const subTotal = cartFormatted.reduce((sumTotal, product) => {
+    return sumTotal + product.subtotal
+  }, 0)
 
-  console.log(cartFormatted)
+  const total = subTotal + deliveryPrice
 
   useEffect(() => {
-    let valueT = 0
-    for (const cart of cartFormatted) {
-      valueT += cart.subtotal
-      setValueCart(() => valueT)
-    }
-    console.log(valueT)
-  }, [carts])
+    setSubTotalCart(() => subTotal)
+    setTotalCart(() => total)
+  }, [subTotal, total])
+  console.log('Total: ', total)
 
   return (
     <Container>
@@ -108,7 +108,7 @@ export function Checkout() {
               <span>Total de itens</span>
               <span>
                 R${' '}
-                {valueCart.toLocaleString('pt-br', {
+                {subTotalCart.toLocaleString('pt-br', {
                   minimumFractionDigits: 2,
                 })}
               </span>
@@ -121,15 +121,12 @@ export function Checkout() {
 
             <SideRightFooterTotal>
               <strong>Total</strong>
-              {valueCart > 0 ? (
+              {subTotalCart > 0 ? (
                 <strong>
                   R${' '}
-                  {valueCart.toLocaleString('pt-br', {
+                  {totalCart.toLocaleString('pt-br', {
                     minimumFractionDigits: 2,
                   })}
-                  {/* {(valueCart + deliveryValue).toLocaleString('pt-br', {
-                    minimumFractionDigits: 2,
-                  })} */}
                 </strong>
               ) : (
                 <strong>R$ 0,00</strong>
