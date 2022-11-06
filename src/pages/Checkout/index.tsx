@@ -2,6 +2,11 @@ import { useContext, useEffect, useState } from 'react'
 
 import {
   Container,
+  InputBase,
+  InputBaseFlex,
+  InputBaseFlexMarginR,
+  InputBaseMarginR,
+  InputBaseMinW,
   SideLeft,
   SideLeftContainer,
   SideLeftFooter,
@@ -9,6 +14,7 @@ import {
   SideLeftFooterContent,
   SideLeftFormContainer,
   SideLeftFormContent,
+  SideLeftFormFlex,
   SideLeftFormHeader,
   SideRight,
   SideRightButtonConfirmOrder,
@@ -66,7 +72,19 @@ export function Checkout() {
                 <p>Informe o endereço onde deseja receber seu pedido</p>
               </div>
             </SideLeftFormHeader>
-            <SideLeftFormContent></SideLeftFormContent>
+            <SideLeftFormContent>
+              <InputBase type="text" placeholder="CEP" />
+              <input type="text" placeholder="Rua" />
+              <SideLeftFormFlex>
+                <InputBaseMarginR type="number" placeholder="Número" />
+                <InputBaseFlex type="text" placeholder="Complemento" />
+              </SideLeftFormFlex>
+              <SideLeftFormFlex>
+                <InputBaseMarginR type="text" placeholder="Bairro" />
+                <InputBaseFlexMarginR type="text" placeholder="Cidade" />
+                <InputBaseMinW type="text" placeholder="UF" />
+              </SideLeftFormFlex>
+            </SideLeftFormContent>
           </SideLeftFormContainer>
           <SideLeftFooter>
             <SideLeftFooterContent>

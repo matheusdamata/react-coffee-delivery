@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
+  width: 11.25rem;
+
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   border: 0;
   border-radius: 8px;

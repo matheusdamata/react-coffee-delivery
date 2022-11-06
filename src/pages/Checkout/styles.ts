@@ -94,11 +94,53 @@ export const SideLeftFooter = styled.div`
   }
 `
 
-export const SideLeftFormContent = styled.div``
+export const SideLeftFormContent = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 2rem;
+
+  input {
+    border: 0;
+    border-radius: 8px;
+
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+
+    font-size: 0.875rem;
+
+    background: ${(props) => props.theme['base-input']};
+  }
+`
 
 export const SideLeftFooterContent = styled.div`
   display: flex;
   flex-direction: row;
+`
+
+export const InputBase = styled.input`
+  width: 12.5rem;
+`
+
+export const SideLeftFormFlex = styled.div`
+  display: flex;
+`
+
+export const InputBaseMarginR = styled(InputBase)`
+  margin-right: 0.75rem;
+`
+
+export const InputBaseFlex = styled(InputBase)`
+  flex: 1;
+`
+
+export const InputBaseFlexMarginR = styled(InputBase)`
+  flex: 1;
+  margin-right: 0.75rem;
+`
+
+export const InputBaseMinW = styled(InputBase)`
+  width: 3.75rem;
 `
 
 export const SideLeftFooterButtons = styled.div`
