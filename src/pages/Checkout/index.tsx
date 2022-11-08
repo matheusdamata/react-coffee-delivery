@@ -2,19 +2,12 @@ import { useContext, useEffect, useState } from 'react'
 
 import {
   Container,
-  InputBase,
-  InputBaseFlex,
-  InputBaseFlexMarginR,
-  InputBaseMarginR,
-  InputBaseMinW,
   SideLeft,
   SideLeftContainer,
   SideLeftFooter,
   SideLeftFooterButtons,
   SideLeftFooterContent,
   SideLeftFormContainer,
-  SideLeftFormContent,
-  SideLeftFormFlex,
   SideLeftFormHeader,
   SideRight,
   SideRightButtonConfirmOrder,
@@ -32,9 +25,47 @@ import { RandomImages } from './components/RandomImages'
 import { CurrencyDollar, MapPinLine } from 'phosphor-react'
 import { ButtonsPayment } from './components/ButtonsPayment'
 import { SelectedCoffees } from './components/SelectedCoffees'
+import { FormCheckout } from './components/FormCheckout'
+
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as zod from 'zod'
+import { FormProvider, useForm } from 'react-hook-form'
+
+const newSalesOrderFormValidationSchema = zod.object({
+  cep: zod.string().min(8).max(8),
+  street: zod.string().min(1, 'O campo "Rua" é necessário!'),
+  number: zod.string().min(1, 'O campo "Número" é necessário!'),
+  complement: zod.string(),
+  district: zod.string().min(1, 'O campo "Bairro" é necessário!'),
+  city: zod.string().min(1, 'O campo "Cidade" é necessário!'),
+})
+
+type NewSalesOrderFormData = zod.infer<typeof newSalesOrderFormValidationSchema>
 
 export function Checkout() {
   const { carts } = useContext(Context)
+
+  const cartNumbers = carts.length
+  const isSubmitSaleForm = !cartNumbers
+
+  const newSalesOrderForm = useForm<NewSalesOrderFormData>({
+    resolver: zodResolver(newSalesOrderFormValidationSchema),
+    defaultValues: {
+      cep: '',
+      street: '',
+      number: '',
+      complement: '',
+      district: '',
+      city: '',
+    },
+  })
+
+  const { handleSubmit, reset } = newSalesOrderForm
+
+  function handleNewSaleSubmit(data: NewSalesOrderFormData) {
+    console.log(data)
+    reset()
+  }
 
   const [totalCart, setTotalCart] = useState(0)
   const [subTotalCart, setSubTotalCart] = useState(0)
@@ -57,7 +88,6 @@ export function Checkout() {
     setSubTotalCart(() => subTotal)
     setTotalCart(() => total)
   }, [subTotal, total])
-  console.log('Total: ', total)
 
   return (
     <Container>
@@ -72,19 +102,15 @@ export function Checkout() {
                 <p>Informe o endereço onde deseja receber seu pedido</p>
               </div>
             </SideLeftFormHeader>
-            <SideLeftFormContent>
-              <InputBase type="text" placeholder="CEP" />
-              <input type="text" placeholder="Rua" />
-              <SideLeftFormFlex>
-                <InputBaseMarginR type="number" placeholder="Número" />
-                <InputBaseFlex type="text" placeholder="Complemento" />
-              </SideLeftFormFlex>
-              <SideLeftFormFlex>
-                <InputBaseMarginR type="text" placeholder="Bairro" />
-                <InputBaseFlexMarginR type="text" placeholder="Cidade" />
-                <InputBaseMinW type="text" placeholder="UF" />
-              </SideLeftFormFlex>
-            </SideLeftFormContent>
+            <form
+              id="formNewSales"
+              onSubmit={handleSubmit(handleNewSaleSubmit)}
+              action=""
+            >
+              <FormProvider {...newSalesOrderForm}>
+                <FormCheckout />
+              </FormProvider>
+            </form>
           </SideLeftFormContainer>
           <SideLeftFooter>
             <SideLeftFooterContent>
@@ -151,7 +177,11 @@ export function Checkout() {
               )}
             </SideRightFooterTotal>
 
-            <SideRightButtonConfirmOrder disabled={carts.length === 0}>
+            <SideRightButtonConfirmOrder
+              form="formNewSales"
+              disabled={isSubmitSaleForm}
+              type="submit"
+            >
               CONFIRMAR PEDIDO
             </SideRightButtonConfirmOrder>
           </SideRightFooter>

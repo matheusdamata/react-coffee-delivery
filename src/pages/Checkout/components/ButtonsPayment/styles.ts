@@ -7,7 +7,7 @@ export const Button = styled.button`
   align-items: center;
   justify-content: flex-start;
 
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 8px;
 
   font-size: 0.75rem;
