@@ -48,6 +48,8 @@ export function Checkout() {
   const cartNumbers = carts.length
   const isSubmitSaleForm = !cartNumbers
 
+  const [selectedPayment, setSelectedPayment] = useState('')
+
   const newSalesOrderForm = useForm<NewSalesOrderFormData>({
     resolver: zodResolver(newSalesOrderFormValidationSchema),
     defaultValues: {
@@ -89,6 +91,11 @@ export function Checkout() {
     setTotalCart(() => total)
   }, [subTotal, total])
 
+  function handleSelectedPayment(option: string) {
+    setSelectedPayment(() => option)
+    console.log('Option selected: ' + selectedPayment)
+  }
+
   return (
     <Container>
       <SideLeft>
@@ -124,9 +131,18 @@ export function Checkout() {
               </div>
             </SideLeftFooterContent>
             <SideLeftFooterButtons>
-              <ButtonsPayment name="credit-card" />
-              <ButtonsPayment name="debit-card" />
-              <ButtonsPayment name="money" />
+              <ButtonsPayment
+                name="credit-card"
+                onClick={() => handleSelectedPayment('credit')}
+              />
+              <ButtonsPayment
+                name="debit-card"
+                onClick={() => handleSelectedPayment('debit')}
+              />
+              <ButtonsPayment
+                name="money"
+                onClick={() => handleSelectedPayment('money')}
+              />
             </SideLeftFooterButtons>
           </SideLeftFooter>
         </SideLeftContainer>
