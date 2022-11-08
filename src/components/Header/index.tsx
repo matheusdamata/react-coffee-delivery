@@ -30,8 +30,8 @@ export function Header() {
         </LocationUser>
         <HeaderButton>
           <NavLinkStyled to="/checkout">
-            <ShoppingCart size={24} weight="fill" />
             <span>{carts.length}</span>
+            <ShoppingCart size={24} weight="fill" />
           </NavLinkStyled>
         </HeaderButton>
       </HeaderOptions>

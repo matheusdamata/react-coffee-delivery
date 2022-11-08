@@ -79,4 +79,25 @@ export const NavLinkStyled = styled(NavLink)`
   &:active {
     color: ${(props) => props.theme.yellow};
   }
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 1.25rem;
+    height: 1.25rem;
+    position: absolute;
+
+    background: ${(props) => props.theme['yellow-dark']};
+
+    border-radius: 50%;
+
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: ${(props) => props.theme.white};
+
+    margin-top: -35px;
+    margin-right: -35px;
+  }
 `
