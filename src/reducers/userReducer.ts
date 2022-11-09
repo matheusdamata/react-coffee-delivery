@@ -10,6 +10,12 @@ export type UserProps = {
 
 export type UserType = {
   carts: UserProps[]
+  purchased: UserProps[]
+}
+
+export const userInitialState: UserType = {
+  carts: [],
+  purchased: [],
 }
 
 export const userReducer = (state: UserType, action: any) => {

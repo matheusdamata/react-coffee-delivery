@@ -4,6 +4,7 @@ import { UserProps, userReducer } from '../reducers/userReducer'
 
 type ContextType = {
   carts: UserProps[]
+  purchased: UserProps[]
   dispatch: React.Dispatch<any>
 }
 
@@ -14,13 +15,16 @@ interface ContextProviderType {
 export const Context = createContext({} as ContextType)
 
 export const ContextProvider = ({ children }: ContextProviderType) => {
-  const [cartsState, dispatch] = useReducer(userReducer, {
+  const [userState, dispatch] = useReducer(userReducer, {
     carts: [],
+    purchased: [],
   })
 
-  const { carts } = cartsState
+  const { carts, purchased } = userState
 
   return (
-    <Context.Provider value={{ carts, dispatch }}>{children}</Context.Provider>
+    <Context.Provider value={{ carts, purchased, dispatch }}>
+      {children}
+    </Context.Provider>
   )
 }

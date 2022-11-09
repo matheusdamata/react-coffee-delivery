@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 import {
   BackgroundImageBanner,
@@ -21,6 +21,7 @@ import { BannerInformation } from './components/BannerInformation'
 import api from '../../config/api'
 
 import { ProductSkeleton } from './components/ProductSkeleton'
+import { Context } from '../../contexts/Context'
 
 export interface ProductsType {
   id: number
@@ -35,8 +36,11 @@ export function Home() {
   const [products, setProducts] = useState<ProductsType[]>([])
   const [loading, setLoading] = useState<boolean>(false)
 
+  const { purchased } = useContext(Context)
+
   useEffect(() => {
     getProductsList()
+    console.log(purchased)
   }, [])
 
   async function getProductsList() {
