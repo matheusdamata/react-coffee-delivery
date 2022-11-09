@@ -1,10 +1,13 @@
 import React, { createContext, ReactNode, useReducer } from 'react'
 
-import { UserProps, userReducer } from '../reducers/userReducer'
+import { CartProps, UserProps, userReducer } from '../reducers/userReducer'
 
 type ContextType = {
-  carts: UserProps[]
-  purchased: UserProps[]
+  carts: CartProps[]
+  purchased: {
+    userInfo: UserProps[]
+    cart: CartProps[]
+  }
   dispatch: React.Dispatch<any>
 }
 
@@ -17,7 +20,10 @@ export const Context = createContext({} as ContextType)
 export const ContextProvider = ({ children }: ContextProviderType) => {
   const [userState, dispatch] = useReducer(userReducer, {
     carts: [],
-    purchased: [],
+    purchased: {
+      userInfo: [],
+      cart: [],
+    },
   })
 
   const { carts, purchased } = userState

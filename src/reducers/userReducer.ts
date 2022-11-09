@@ -1,6 +1,17 @@
 import produce from 'immer'
 
 export type UserProps = {
+  cep: string
+  street: string
+  number: string
+  complement?: string
+  district: string
+  city: string
+  uf: string
+  paymentSelected: string
+}
+
+export type CartProps = {
   id: number
   imageUrl: string
   name: string
@@ -9,8 +20,11 @@ export type UserProps = {
 }
 
 export type UserType = {
-  carts: UserProps[]
-  purchased: UserProps[]
+  carts: CartProps[]
+  purchased: {
+    userInfo: UserProps[]
+    cart: CartProps[]
+  }
 }
 
 export const userReducer = (state: UserType, action: any) => {
@@ -56,7 +70,9 @@ export const userReducer = (state: UserType, action: any) => {
     }
     case 'PURCHASED_SUCCESS': {
       return produce(state, (draft) => {
-        draft.purchased.push(action.payload)
+        draft.purchased.userInfo.push(action.payload.userInfo)
+        draft.purchased.cart.push(action.payload.cart)
+        draft.carts = []
       })
     }
     default:

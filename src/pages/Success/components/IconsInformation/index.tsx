@@ -1,17 +1,31 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import { Container, ContentBase, IconContainer, Information } from './styles'
 
+type userInfoType = {
+  cep: string
+  street: string
+  number: string
+  complement?: string
+  district: string
+  city: string
+  uf: string
+  paymentSelected: string
+}
+
 type IconsInformationType = {
-  address: string
-  number: number
+  userInfoDelivery: userInfoType[]
+  address?: string
+  number?: number
   payment: 'Cartão de Crédito' | 'Cartão de Débito' | 'Dinheiro'
 }
 
 export function IconsInformation({
+  userInfoDelivery,
   address,
   number,
   payment,
 }: IconsInformationType) {
+  console.log(userInfoDelivery)
   return (
     <Container>
       <ContentBase>
@@ -22,10 +36,13 @@ export function IconsInformation({
           <p>
             Entrega em{' '}
             <strong>
-              {address}, {number}
+              {userInfoDelivery[0].street}, {userInfoDelivery[0].number}
             </strong>
           </p>
-          <p>Farrapos - Porto Alegre, RS</p>
+          <p>
+            {userInfoDelivery[0].district} - {userInfoDelivery[0].city},{' '}
+            {userInfoDelivery[0].uf}
+          </p>
         </Information>
       </ContentBase>
       <ContentBase>
@@ -43,7 +60,7 @@ export function IconsInformation({
         </IconContainer>
         <Information>
           <p>Pagamento na entrega</p>
-          <strong>{payment}</strong>
+          <strong>{userInfoDelivery[0].paymentSelected}</strong>
         </Information>
       </ContentBase>
     </Container>

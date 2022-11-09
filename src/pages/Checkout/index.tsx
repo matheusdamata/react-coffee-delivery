@@ -30,6 +30,7 @@ import { FormCheckout } from './components/FormCheckout'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 import { FormProvider, useForm } from 'react-hook-form'
+import { Navigate } from 'react-router-dom'
 
 const newSalesOrderFormValidationSchema = zod.object({
   cep: zod.string().min(8).max(8),
@@ -38,6 +39,7 @@ const newSalesOrderFormValidationSchema = zod.object({
   complement: zod.string(),
   district: zod.string().min(1, 'O campo "Bairro" é necessário!'),
   city: zod.string().min(1, 'O campo "Cidade" é necessário!'),
+  uf: zod.string().min(1, 'O campo "UF" é necessário!'),
 })
 
 type NewSalesOrderFormData = zod.infer<typeof newSalesOrderFormValidationSchema>
@@ -68,11 +70,23 @@ export function Checkout() {
     dispatch({
       type: 'PURCHASED_SUCCESS',
       payload: {
-        id: 1,
-        imageUrl: 'product.imageUrl',
-        name: 'product.name',
-        value: 99,
-        quantity: 5,
+        userInfo: {
+          cep: data.cep,
+          street: data.street,
+          number: data.number,
+          complement: data.complement,
+          district: data.district,
+          city: data.city,
+          uf: data.uf,
+          paymentSelected: selectedPayment,
+        },
+        cart: {
+          id: 2,
+          imageUrl: 'product.imageUrl',
+          name: 'product.name',
+          value: 299,
+          quantity: 2,
+        },
       },
     })
     reset()
@@ -143,15 +157,15 @@ export function Checkout() {
             <SideLeftFooterButtons>
               <ButtonsPayment
                 name="credit-card"
-                onClick={() => handleSelectedPayment('credit')}
+                onClick={() => handleSelectedPayment('Cartão de Crédito')}
               />
               <ButtonsPayment
                 name="debit-card"
-                onClick={() => handleSelectedPayment('debit')}
+                onClick={() => handleSelectedPayment('Cartão de Débito')}
               />
               <ButtonsPayment
                 name="money"
-                onClick={() => handleSelectedPayment('money')}
+                onClick={() => handleSelectedPayment('Dinheiro')}
               />
             </SideLeftFooterButtons>
           </SideLeftFooter>
@@ -213,6 +227,8 @@ export function Checkout() {
           </SideRightFooter>
         </SideRightContainer>
       </SideRight>
+
+      {purchased.userInfo.length ? <Navigate to="/success"></Navigate> : null}
     </Container>
   )
 }
