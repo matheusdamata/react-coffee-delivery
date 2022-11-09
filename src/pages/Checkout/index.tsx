@@ -43,7 +43,7 @@ const newSalesOrderFormValidationSchema = zod.object({
 type NewSalesOrderFormData = zod.infer<typeof newSalesOrderFormValidationSchema>
 
 export function Checkout() {
-  const { carts } = useContext(Context)
+  const { carts, purchased, dispatch } = useContext(Context)
 
   const cartNumbers = carts.length
   const isSubmitSaleForm = !cartNumbers
@@ -65,8 +65,18 @@ export function Checkout() {
   const { handleSubmit, reset } = newSalesOrderForm
 
   function handleNewSaleSubmit(data: NewSalesOrderFormData) {
-    console.log(data)
+    dispatch({
+      type: 'PURCHASED_SUCCESS',
+      payload: {
+        id: 1,
+        imageUrl: 'product.imageUrl',
+        name: 'product.name',
+        value: 99,
+        quantity: 5,
+      },
+    })
     reset()
+    console.log('Minhas compras: ', purchased)
   }
 
   const [totalCart, setTotalCart] = useState(0)

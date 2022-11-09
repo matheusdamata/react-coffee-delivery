@@ -13,11 +13,6 @@ export type UserType = {
   purchased: UserProps[]
 }
 
-export const userInitialState: UserType = {
-  carts: [],
-  purchased: [],
-}
-
 export const userReducer = (state: UserType, action: any) => {
   switch (action.type) {
     case 'ADD_TO_CART': {
@@ -58,6 +53,11 @@ export const userReducer = (state: UserType, action: any) => {
         ...state,
         carts: state.carts.filter((product) => product.id !== action.payload),
       }
+    }
+    case 'PURCHASED_SUCCESS': {
+      return produce(state, (draft) => {
+        draft.purchased.push(action.payload)
+      })
     }
     default:
       return state
