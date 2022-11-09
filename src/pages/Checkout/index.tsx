@@ -47,9 +47,6 @@ type NewSalesOrderFormData = zod.infer<typeof newSalesOrderFormValidationSchema>
 export function Checkout() {
   const { carts, purchased, dispatch } = useContext(Context)
 
-  const cartNumbers = carts.length
-  const isSubmitSaleForm = !cartNumbers
-
   const [selectedPayment, setSelectedPayment] = useState('')
 
   const newSalesOrderForm = useForm<NewSalesOrderFormData>({
@@ -65,6 +62,9 @@ export function Checkout() {
   })
 
   const { handleSubmit, reset } = newSalesOrderForm
+
+  const cartNumbers = carts.length
+  const isSubmitSaleForm = !cartNumbers
 
   function handleNewSaleSubmit(data: NewSalesOrderFormData) {
     dispatch({

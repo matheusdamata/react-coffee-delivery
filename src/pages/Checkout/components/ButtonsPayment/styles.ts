@@ -25,6 +25,7 @@ export const Button = styled.button`
   }
 
   &:focus {
+    background: ${(props) => props.theme['purple-light']};
     border: 1px solid ${(props) => props.theme.purple};
     box-shadow: none;
   }

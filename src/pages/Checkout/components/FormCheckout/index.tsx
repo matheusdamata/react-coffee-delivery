@@ -8,6 +8,7 @@ import {
   InputBaseMarginR,
   InputBaseMinW,
   FormFlex,
+  InputOptional,
 } from './styles'
 
 export function FormCheckout() {
@@ -25,11 +26,14 @@ export function FormCheckout() {
           placeholder="Número"
           {...register('number')} /*, { valueAsNumber: true })} */
         />
-        <InputBaseFlex
-          type="text"
-          placeholder="Complemento"
-          {...register('complement')}
-        />
+        <InputOptional>
+          <InputBaseFlex
+            type="text"
+            placeholder="Complemento"
+            {...register('complement')}
+          />
+          <span>Opcional</span>
+        </InputOptional>
       </FormFlex>
       <FormFlex>
         <InputBaseMarginR

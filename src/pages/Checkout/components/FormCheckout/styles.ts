@@ -5,6 +5,10 @@ export const FormContainer = styled.div`
   flex-direction: column;
 
   margin-top: 2rem;
+
+  input:focus {
+    box-shadow: 0 0 0 1px ${(props) => props.theme['yellow-dark']};
+  }
 `
 export const InputBase = styled.input`
   width: 12.5rem;
@@ -30,6 +34,37 @@ export const InputBaseMarginR = styled(InputBase)`
 
 export const InputBaseFlex = styled(InputBase)`
   flex: 1;
+`
+
+export const InputOptional = styled.div`
+  display: flex;
+  flex: 1;
+
+  span {
+    position: absolute;
+
+    margin-top: 0.75rem;
+    margin-left: 18rem;
+
+    font-size: 0.75rem;
+    font-style: italic;
+    color: ${(props) => props.theme['base-label']};
+  }
+
+  input {
+    padding-right: 4.5rem;
+  }
+`
+
+export const TextInput = styled.span`
+  position: absolute;
+
+  margin-top: 0.75rem;
+  margin-left: 18rem;
+
+  font-size: 0.75rem;
+  font-style: italic;
+  color: ${(props) => props.theme['base-label']};
 `
 
 export const InputBaseFlexMarginR = styled(InputBase)`
