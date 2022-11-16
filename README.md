@@ -1,5 +1,5 @@
 # E-commerce Coffee Delivery
-<img src="./public/capa.png" />
+<img src="./public/_images/capa.png" />
 
 Projeto em ReactJS.
 
@@ -14,9 +14,9 @@ Gerenciar um carrinho de compras de uma cafeteria fictícia, que contém as segu
 - Exibir o valor total da soma de itens no carrinho multiplicados pelo valor
 
 ### Imagens
-<img src="./home.png" />
-<img src="./checkout.png" />
-<img src="./success.png" />
+<img src="./public/_images/home.png" />
+<img src="./public/_images/checkout.png" />
+<img src="./public/_images/success.png" />
 
 ### Importante
 Instalar a biblioteca <a href="https://www.npmjs.com/package/json-server" target="_blank">JSON-SERVER</a>
