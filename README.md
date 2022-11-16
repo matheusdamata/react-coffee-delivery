@@ -13,7 +13,7 @@ Gerenciar um carrinho de compras de uma cafeteria fictícia, que contém as segu
 - Exibir o valor total da soma de itens no carrinho multiplicados pelo valor
 
 ### Imagens
-<img src="./capa.png" />
+<img src="./Capa.png" />
 
 ### Importante
 Instalar a biblioteca <a href="https://www.npmjs.com/package/json-server" target="_blank">JSON-SERVER</a>
