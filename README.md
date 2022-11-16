@@ -16,7 +16,7 @@ Gerenciar um carrinho de compras de uma cafeteria fictícia, que contém as segu
 <img src="./_images/desktop.png" />
 
 ### Importante
-Instalar a biblioteca <a href="https://www.npmjs.com/package/json-server">JSON-SERVER</a>
+Instalar a biblioteca <a href="https://www.npmjs.com/package/json-server" target="_blank">JSON-SERVER</a>
 
 - Para aplicação funcionar corretamente, deverá iniciar o fake back-end através do `yarn server ou npm run server`.
 
