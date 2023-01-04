@@ -1,10 +1,9 @@
 # E-commerce Coffee Delivery
-<img src="./public/_images/capa.png" />
 
 Projeto em ReactJS.
 
 ### Objetivo
-Gerenciar um carrinho de compras de uma cafeteria fictícia, que contém as seguintes funcionalidades:
+Gerenciar um carrinho de compras de uma cafeteria, que contém as seguintes funcionalidades:
 
 - Listagem de produtos (cafés) disponíveis para compra
 - Adicionar uma quantidade específicas de itens no carrinho
